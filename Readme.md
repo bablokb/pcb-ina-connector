@@ -52,6 +52,14 @@ Layout
 ![](pcb-3D-bot.png)
 
 
+3D-Model
+--------
+
+In the directory `3D` there is an OpenSCAD-model for a
+holder that takes an INA3221 and three off the PCBs.
+
+![](holder.png)
+
 
 License
 -------

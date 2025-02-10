@@ -6,8 +6,8 @@
 
   (title_block
     (title "INA-Connector")
-    (date "2025-01-02")
-    (rev "1.0")
+    (date "2025-02-10")
+    (rev "1.1")
     (company "Bernhard Bablok")
     (comment 1 "https://github.com/bablokb/pcb-ina-connector")
   )

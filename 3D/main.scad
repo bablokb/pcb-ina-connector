@@ -37,6 +37,10 @@ switch_d = 6;
 switch_x_off = 31; // from outer edge of pcb_holder
 switch_y_off = 6;  //from outer edge of pcb-holder
 
+// stemma
+stemma_x = 8.0;
+stemma_z = 3.2;
+
 // --- main module with 3x connection-holder and 1x INA3221-holder   ---------
 module main() {
   ymove(conn_y/2+conn_x/2) zrot(90) conn_holder();
@@ -100,7 +104,6 @@ module conn_cutouts() {
 // --- cover   ----------------------------------------------------------------
 
 module cover() {
-  //main();
   difference() {
     linear_extrude(height=cover_z) top();
     zmove(b) linear_extrude(height=cover_z) bottom();
@@ -115,6 +118,9 @@ module cover() {
                      cylinder(h=b+2*fuzz,d=switch_d);
     zrot(-90) move([-conn_y/2+switch_x_off,conn_y/2+conn_x-switch_y_off,-fuzz])
                      cylinder(h=b+2*fuzz,d=switch_d);
+    // cutout stemma
+    zmove(cover_z-base_z-stemma_z) ymove(-conn_y/2-w2/2)
+                         cuboid([stemma_x,w4,stemma_z],anchor=BOTTOM+CENTER);
   }
   // support walls
   ymove(conn_y/2+conn_x/2) conn_support_walls();
@@ -127,4 +133,5 @@ module cover() {
 // ---- final object: all holders combined with the base   --------------------
 
 //base();
+//zmove(cover_z) yrot(180)
 cover();

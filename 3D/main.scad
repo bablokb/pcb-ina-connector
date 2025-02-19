@@ -80,6 +80,15 @@ module conn_support_walls() {
                        cuboid([w2,conn_x,cover_z-base_z],anchor=BOTTOM+CENTER);
 }
 
+// --- cutouts ina-connector   ------------------------------------------------
+
+module conn_cutouts() {
+    move([-conn_y/2 + wall1_x/2 + wall1_x_off,0,b])
+                    cuboid([wall1_x,w4,cover_z-base_z-b],anchor=BOTTOM+CENTER);
+    move([+conn_y/2 - wall2_x/2 - wall2_x_off,0,b])
+                    cuboid([wall2_x,w4,cover_z-base_z-b],anchor=BOTTOM+CENTER);
+}
+
 // --- cover   ----------------------------------------------------------------
 
 module cover() {
@@ -88,14 +97,15 @@ module cover() {
     linear_extrude(height=cover_z) top();
     zmove(b) linear_extrude(height=cover_z) bottom();
     // cutouts for connectors
-    //cuboid([,w4,1],anchor=BOTTOM+CENTER);
-
+    ymove(conn_y/2+conn_x+w4/2-fuzz) conn_cutouts();
+    xmove(-conn_y/2-conn_x-w4/2+fuzz) zrot(90) conn_cutouts();
+    xmove(conn_y/2+conn_x+w4/2-fuzz) zrot(90) conn_cutouts();
   }
   // support walls
   ymove(conn_y/2+conn_x/2) conn_support_walls();
   xmove(conn_x/2+conn_y/2) zrot(90) conn_support_walls();
   xmove(-conn_x/2+-conn_y/2) zrot(90) conn_support_walls();
-  ymove(-conn_y/2+ina_x/2) xmove(-conn_x/2+w4) cuboid([w2,ina_x,cover_z-base_z],anchor=BOTTOM+CENTER);
+  ymove(-conn_y/2+ina_x/2) xmove(+conn_x/2-w4) cuboid([w2,ina_x,cover_z-base_z],anchor=BOTTOM+CENTER);
 }
 
 // ---- final object: all holders combined with the base   --------------------

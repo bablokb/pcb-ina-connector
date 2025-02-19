@@ -17,6 +17,7 @@ include <ina3221_holder.scad>
 
 conn_x = pcb_holder_dim(conn_holder_x());
 conn_y = pcb_holder_dim(conn_holder_y());
+ina_x  = pcb_holder_dim(ina3221_holder_x());
 ina_y  = pcb_holder_dim(ina3221_holder_y());
 
 base_z = 1.6 + 2 + b;
@@ -27,7 +28,7 @@ module main() {
   ymove(conn_y/2+conn_x/2) zrot(90) conn_holder();
   xmove(-conn_y/2-conn_x/2) conn_holder();
   xmove(+conn_y/2+conn_x/2) conn_holder();
-  ymove(-conn_y/2+ina_y/2) ina3221_holder();
+  ymove(-conn_y/2+ina_x/2) zrot(-90) ina3221_holder();
 }
 
 // --- bottom: an extrusion of a projection of the hull of all objects   -----
@@ -72,5 +73,5 @@ module cover() {
 
 // ---- final object: all holders combined with the base   --------------------
 
-//base();
-cover();
+base();
+//cover();

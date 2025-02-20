@@ -94,10 +94,10 @@ module conn_support_walls() {
 module conn_cutouts() {
     ymove(conn_y/2+conn_x+w4/2-fuzz)
     union() {
-      move([-conn_y/2 + wall1_x/2 + wall1_x_off,0,b])
-                    cuboid([wall1_x,w4,cover_z-base_z-b],anchor=BOTTOM+CENTER);
-      move([+conn_y/2 - wall2_x/2 - wall2_x_off,0,b])
-                    cuboid([wall2_x,w4,cover_z-base_z-b],anchor=BOTTOM+CENTER);
+      move([-conn_y/2 + wall1_x/2 + wall1_x_off,0,-fuzz])
+                    cuboid([wall1_x,w4,cover_z-base_z],anchor=BOTTOM+CENTER);
+      move([+conn_y/2 - wall2_x/2 - wall2_x_off,0,-fuzz])
+                    cuboid([wall2_x,w4,cover_z-base_z],anchor=BOTTOM+CENTER);
     }
 }
 

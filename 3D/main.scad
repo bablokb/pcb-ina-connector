@@ -41,6 +41,12 @@ switch_y_off = 5.5;  //from outer edge of pcb-holder
 stemma_x = 10.0;
 stemma_z = 5.2;
 
+// support for screw-terminals of INA3221
+st_x_off = 6;
+st_x     = 5;
+st_y     = 33.5;
+st_z     = cover_z - base_z - 8.6;
+
 // --- main module with 3x connection-holder and 1x INA3221-holder   ---------
 module main() {
   ymove(conn_y/2+conn_x/2) zrot(90) conn_holder();
@@ -122,12 +128,15 @@ module cover() {
     zmove(cover_z-base_z-stemma_z) ymove(-conn_y/2-w2/2)
                          cuboid([stemma_x,w4,stemma_z],anchor=BOTTOM+CENTER);
   }
-  // support walls
+  // support walls INA-connector
   ymove(conn_y/2+conn_x/2) conn_support_walls();
   xmove(conn_x/2+conn_y/2) zrot(90) conn_support_walls();
   xmove(-conn_x/2+-conn_y/2) zrot(90) conn_support_walls();
+  // support walls INA3221
   ymove(-conn_y/2+ina_x/2) xmove(+conn_x/2-w4)
                      cuboid([w2,ina_x,cover_z-base_z],anchor=BOTTOM+CENTER);
+  ymove(-conn_y/2+st_y/2) xmove(-st_x_off)
+                     cuboid([st_x,st_y,st_z],anchor=BOTTOM+CENTER);
 }
 
 // ---- final object: all holders combined with the base   --------------------

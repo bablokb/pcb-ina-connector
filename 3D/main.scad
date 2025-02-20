@@ -30,7 +30,7 @@ wall_x_off = 4.5 + w4;    // from pcb-edge + wall pcb_holder
 wall1_x_off = wall_x_off + w2;
 wall1_x    = 24.8 - wall_x_off;
 wall2_x_off = wall1_x_off;
-wall2_x    = 34.3 - wall_x_off;
+wall2_x    = 35.3 - wall_x_off;
 
 // switches
 switch_d = 6;

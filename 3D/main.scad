@@ -34,8 +34,8 @@ wall2_x    = 34.3 - wall_x_off;
 
 // switches
 switch_d = 6;
-switch_x_off = 31; // from outer edge of pcb_holder
-switch_y_off = 6;  //from outer edge of pcb-holder
+switch_x_off = 30.5; // from outer edge of pcb_holder
+switch_y_off = 5.5;  //from outer edge of pcb-holder
 
 // stemma
 stemma_x = 8.0;

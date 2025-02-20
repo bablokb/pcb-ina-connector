@@ -38,8 +38,8 @@ switch_x_off = 30.5; // from outer edge of pcb_holder
 switch_y_off = 5.5;  //from outer edge of pcb-holder
 
 // stemma
-stemma_x = 8.0;
-stemma_z = 3.2;
+stemma_x = 10.0;
+stemma_z = 5.2;
 
 // --- main module with 3x connection-holder and 1x INA3221-holder   ---------
 module main() {

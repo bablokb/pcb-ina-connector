@@ -29,7 +29,9 @@ switch, e.g.
 You should also connect GND of this PCB to the INA-breakout if it
 does not share GND somewhere else. Likewise for the INA3221
 (which has three channels), use and connect three of these
-PCBs.
+PCBs:
+
+![](ina3221-and-connectors.jpg)
 
 
 Schematic
